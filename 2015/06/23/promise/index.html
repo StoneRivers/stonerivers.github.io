@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ES6,Promise," />
 
 
 
@@ -51,15 +51,19 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="石河的技术Blog">
-<meta property="og:url" content="http://stonerivers.me/index.html">
+<meta name="description" content="端午节唯一的收获，就是由jquery源码，知道了Promise大概是个啥。ES6的学习有了一个不错的开始。话不多说，先上一个简易代码，过几天弄懂之后再补充一段专业而严谨的解说。我对Promise的直观看法：node.js官方的api基本都是以会回调方式传递函数返回值，层层嵌套，不知不觉就建造起了一座高高的回调金字塔。针对这种普遍问题，Promise应势而生！
+简单demofunction time">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise学习总结">
+<meta property="og:url" content="http://stonerivers.me/2015/06/23/promise/index.html">
 <meta property="og:site_name" content="石河的技术Blog">
-<meta property="og:description">
+<meta property="og:description" content="端午节唯一的收获，就是由jquery源码，知道了Promise大概是个啥。ES6的学习有了一个不错的开始。话不多说，先上一个简易代码，过几天弄懂之后再补充一段专业而严谨的解说。我对Promise的直观看法：node.js官方的api基本都是以会回调方式传递函数返回值，层层嵌套，不知不觉就建造起了一座高高的回调金字塔。针对这种普遍问题，Promise应势而生！
+简单demofunction time">
+<meta property="og:updated_time" content="2015-12-04T09:57:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="石河的技术Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="promise学习总结">
+<meta name="twitter:description" content="端午节唯一的收获，就是由jquery源码，知道了Promise大概是个啥。ES6的学习有了一个不错的开始。话不多说，先上一个简易代码，过几天弄懂之后再补充一段专业而严谨的解说。我对Promise的直观看法：node.js官方的api基本都是以会回调方式传递函数返回值，层层嵌套，不知不觉就建造起了一座高高的回调金字塔。针对这种普遍问题，Promise应势而生！
+简单demofunction time">
 
 
 
@@ -71,7 +75,7 @@
   };
 </script>
 
-  <title> 石河的技术Blog </title>
+  <title> promise学习总结 | 石河的技术Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -92,9 +96,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -191,24 +193,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
-    
-      
 
   
   
@@ -228,10 +215,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/06/23/promise/" itemprop="url">
-                  promise学习总结
-                </a>
+                promise学习总结
               
             
           </h1>
@@ -279,10 +263,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>端午节唯一的收获，就是由jquery源码，知道了Promise大概是个啥。ES6的学习有了一个不错的开始。话不多说，先上一个简易代码，过几天弄懂之后再补充一段专业而严谨的解说。<br>我对Promise的直观看法：node.js官方的api基本都是以会回调方式传递函数返回值，层层嵌套，不知不觉就建造起了一座高高的回调金字塔。针对这种普遍问题，Promise应势而生！</p>
+        <span itemprop="articleBody"><p>端午节唯一的收获，就是由jquery源码，知道了Promise大概是个啥。ES6的学习有了一个不错的开始。话不多说，先上一个简易代码，过几天弄懂之后再补充一段专业而严谨的解说。<br>我对Promise的直观看法：node.js官方的api基本都是以会回调方式传递函数返回值，层层嵌套，不知不觉就建造起了一座高高的回调金字塔。针对这种普遍问题，Promise应势而生！</p>
 <h2 id="简单demo">简单demo</h2><pre><code><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>)</span>{
     <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>{
         setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
@@ -380,31 +361,48 @@ promise
 <pre><code>doSomething<span class="literal">()</span>.<span class="keyword">then</span>(doSomethingElse)
   .<span class="keyword">then</span>(finalHandler);
 </code></pre><p>正常执行。then传递的均是函数句柄，与第一种情况相比，除了this不同，其余都是一样的额。</p>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+            <a href="/tags/Promise/" rel="tag">#Promise</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/25/object/" rel="next" title="Maven详细指南">
+                <i class="fa fa-chevron-left"></i> Maven详细指南
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
 
-  </section>
-
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
         </div>
@@ -413,6 +411,10 @@ promise
 
 
         
+  <div class="comments" id="comments">
+    
+  </div>
+
 
       </div>
 
@@ -433,8 +435,17 @@ promise
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/icon.jpg" alt="StoneRivers" itemprop="image"/>
           <p class="site-author-name" itemprop="name">StoneRivers</p>
@@ -479,6 +490,23 @@ promise
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单demo"><span class="nav-number">1.</span> <span class="nav-text">简单demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all_原理及使用场景"><span class="nav-number">2.</span> <span class="nav-text">Promise.all 原理及使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对Ajax的封装，以及抛出错误时的另一种处理方式："><span class="nav-number">3.</span> <span class="nav-text">对Ajax的封装，以及抛出错误时的另一种处理方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步的体现："><span class="nav-number">4.</span> <span class="nav-text">异步的体现：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递：同步返回"><span class="nav-number">5.</span> <span class="nav-text">参数传递：同步返回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递：promises穿透"><span class="nav-number">6.</span> <span class="nav-text">参数传递：promises穿透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我来解释微博上传的很火的四道题目"><span class="nav-number">7.</span> <span class="nav-text">我来解释微博上传的很火的四道题目</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -549,6 +577,167 @@ promise
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
