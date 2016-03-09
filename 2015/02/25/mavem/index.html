@@ -71,7 +71,7 @@
 执行测试（单元测试、集成测试等）
 打包（打包成jar、war、ejb-jar等）
 进行代码检">
-<meta property="og:updated_time" content="2016-03-09T09:03:15.000Z">
+<meta property="og:updated_time" content="2016-03-09T09:09:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven详细指南">
 <meta name="twitter:description" content="Maven详细指南Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
@@ -381,7 +381,6 @@
 <p>更详细的声明周期介绍请参看 <a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html" target="_blank" rel="external">Apache Maven Project - Introduction to the Build Lifecycle</a></p>
 <h2 id="构建时配置信息动态修改:Profile">构建时配置信息动态修改:Profile</h2><p>Profile可以看做是配置文件中（settings.xml和pom.xml）的动态补丁，由配置文件中的<code>&lt;profiles&gt;</code>节点的<code>&lt;profile&gt;</code>子节点来定义，每个都Profile有不同的激活条件和相应的配置项。当一个Profile激活后其中的配置项会覆盖配置文件（settings.xml和pom.xml）中的同名配置项。Profile使得构建过程中依据条件动态修改配置文件成为可能，提高了Maven在不同环境下构建工程时的灵活性。</p>
 <h3 id="Profile的分类">Profile的分类</h3><p>根据Profile存在的的位置将Profile分为三个类型（等级）</p>
-<p><table border="1"><br>  <tr><br>    <th width="200" align="center">类型（等级）</th><br>    <th width="500" align="center">所定义位置</th><br>  </tr><br>  <tr><br>    <td align="center">Project</td><br>    <td align="center">工程的pom.xml中</td><br>  </tr><br>  <tr><br>    <td align="center">User</td><br>    <td align="center">个人settings.xml（${user.home}/.m2/settings.xml）中</td><br>  </tr><br>  <tr><br>    <td align="center">Global</td><br>    <td align="center">全局settings.xml（$M2_HOME/conf/settings.xml）中</td><br>  </tr><br></table></p>
 <h3 id="Profile中允许定义的配置信息">Profile中允许定义的配置信息</h3><p>由于Profile是覆盖配置文件中的配置项目，所以Profile中能够定义的配置信息跟Profile所处的位置是相关的。以下就分两种情况来讨论，一种是定义在settings.xml中，另一种是定义在pom.xml中。</p>
 <ol>
 <li><p>定义在settings.xml中<br><code>&lt;repositories&gt;</code>、<code>&lt;pluginRepositories&gt;</code>和<code>&lt;properties&gt;</code><br>其中<code>&lt;properties&gt;</code>中的键值对可以在pom.xml中使用。</p>
