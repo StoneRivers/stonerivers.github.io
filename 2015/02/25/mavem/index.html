@@ -51,40 +51,37 @@
 
 
 
-<meta name="description" content="Maven详细指南@(一些开发组件)
-[TOC]
-Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
+<meta name="description" content="Maven详细指南Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
 
 生成源码（如果有需要）
 编译源代码
 编译测试代码
 执行测试（单元测试、集成测试等）
-打包（打包成jar、war">
+打包（打包成jar、war、ejb-jar等）
+进行代码检">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven详细指南">
 <meta property="og:url" content="http://stonerivers.me/2015/02/25/mavem/index.html">
 <meta property="og:site_name" content="石河的技术Blog">
-<meta property="og:description" content="Maven详细指南@(一些开发组件)
-[TOC]
-Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
+<meta property="og:description" content="Maven详细指南Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
 
 生成源码（如果有需要）
 编译源代码
 编译测试代码
 执行测试（单元测试、集成测试等）
-打包（打包成jar、war">
-<meta property="og:updated_time" content="2016-03-09T11:37:02.000Z">
+打包（打包成jar、war、ejb-jar等）
+进行代码检">
+<meta property="og:updated_time" content="2016-03-09T11:46:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven详细指南">
-<meta name="twitter:description" content="Maven详细指南@(一些开发组件)
-[TOC]
-Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
+<meta name="twitter:description" content="Maven详细指南Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：
 
 生成源码（如果有需要）
 编译源代码
 编译测试代码
 执行测试（单元测试、集成测试等）
-打包（打包成jar、war">
+打包（打包成jar、war、ejb-jar等）
+进行代码检">
 
 
 
@@ -284,9 +281,7 @@ Build VS CompileMaven作为构建&amp;amp;项目管理工具，在学习了解Ma
       
 
       
-        <span itemprop="articleBody"><h1 id="Maven详细指南">Maven详细指南</h1><p>@(一些开发组件)</p>
-<p>[TOC]</p>
-<h2 id="Build_VS_Compile">Build VS Compile</h2><p>Maven作为构建&amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。<br>Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：</p>
+        <span itemprop="articleBody"><h1 id="Maven详细指南">Maven详细指南</h1><h2 id="Build_VS_Compile">Build VS Compile</h2><p>Maven作为构建&amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。<br>Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：</p>
 <ul>
 <li>生成源码（如果有需要）</li>
 <li>编译源代码</li>
