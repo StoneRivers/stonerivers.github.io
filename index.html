@@ -280,9 +280,7 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="Maven详细指南">Maven详细指南</h1><h2 id="Build_VS_Compile">Build VS Compile</h2><p>Maven作为构建&amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。
+          <h1 id="Maven详细指南">Maven详细指南</h1><h2 id="Build_VS_Compile">Build VS Compile</h2><p>Maven作为构建&amp;项目管理工具，在学习了解Maven之前有必要区别一下这两个概念。
 Build：构建包含了一个软件系统成为最终“可交付成果”的所有步骤。在java项目中主要包含（不限于）如下过程：</p>
 <ul>
 <li>生成源码（如果有需要）</li>
@@ -294,7 +292,7 @@ Build：构建包含了一个软件系统成为最终“可交付成果”的所
 <li>生成相关报告文档</li>
 </ul>
 <p>可以看到，构建工程是包含很多步骤的，而编译只是流程中的一步。如此多的步骤手动执行显然是不现实的，那么诸如Maven、Ant等自动构建工具就显得很有必要，他们使得一体化连续型的程序构建成为可能。减低了构建过程的出错率，提高了构建效率。</p>
-<h2 id="什么是Maven">什么是Maven</h2><p>Maven最早出现在apache项目<a href="https://zh.wikipedia.org/wiki/Jakarta%E9%A1%B9%E7%9B%AE" target="_blank" rel="external">Jakarta Turbine</a>中，尝试解决项目构建流程的简化问题。当时的项目管理的情况是，很多项目的Ant构建文件都有着或多或少的差别，同时它们的jar包又由CVS管理。
+<h2 id="什么是Maven">什么是Maven</h2><p>Maven最早出现在apache项目<a href="https://zh.wikipedia.org/wiki/Jakarta%E9%A1%B9%E7%9B%AE">Jakarta Turbine</a>中，尝试解决项目构建流程的简化问题。当时的项目管理的情况是，很多项目的Ant构建文件都有着或多或少的差别，同时它们的jar包又由CVS管理。
 Maven旨在简化java开发者的日常开发流程，帮助开发人员更好的理解一个项目，它通过实现以下目标来达到上述期望：</p>
 <ul>
 <li>标准、统一、简单的项目构建方式</li>
@@ -311,168 +309,12 @@ Maven旨在简化java开发者的日常开发流程，帮助开发人员更好�
 <li>基于模型的构建，大多数情况下不需要额外的配置就能以预先定义好的输出类型（Jar，war等）构建项目。</li>
 <li>详细的项目生成报告：除</li>
 <li>了标准的项目开发状态报告以外，Maven把任何你感兴趣项目星期添加到报告中，并以PDF或者站点的形式展现出来。</li>
-<li>无需过多配置的发布管理。</li>
-</ul>
-<h2 id="Maven的配置">Maven的配置</h2><p>maven的配置项用settings.xml来配置，该文件可以存在于Maven安装目录（M2_HOME）和用户主目录（{user.home}），具体目录路径如下：</p>
-<ul>
-<li>Maven安装目录中：$M2_HOME/conf/settings.xml</li>
-<li>用户主目录中：${user.home}/.m2/settings.xml</li>
-</ul>
-<p>如果两个文件都存在，相同设置项后者将覆盖前者。该配置文件中详细的配置项目参看<a href="http://maven.apache.org/settings.html" target="_blank" rel="external">Apache Maven Project - Settings Reference</a></p>
-<h2 id="POM文件">POM文件</h2><p>pom.xml（Project Object Model，工程对象模型）文件是Maven的核心，该文件需位于项目的根目录。该文件以xml的形式描述工程和配置信息，是Maven构建工程的依据。
-pom.xml中的配置项如下：</p>
-<ul>
-<li>project dependencies</li>
-<li>plugins</li>
-<li>goals</li>
-<li>build profiles</li>
-<li>project version</li>
-<li>developers</li>
-<li>mailing list</li>
-</ul>
-<h3 id="最小化pom-xml文件示例">最小化pom.xml文件示例</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">project</span> <span class="attribute">xmlns</span>=<span class="value">”http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">POM</span>/<span class="attribute">4.0.0</span>″</span><br><span class="line"><span class="attribute">xmlns:xsi</span>=<span class="value">”http:</span>//<span class="attribute">www.w3.org</span>/<span class="attribute">2001</span>/<span class="attribute">XMLSchema-instance</span>”</span><br><span class="line"><span class="attribute">xsi:schemaLocation</span>=<span class="value">”http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">POM</span>/<span class="attribute">4.0.0</span></span><br><span class="line"><span class="attribute">http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">xsd</span>/<span class="attribute">maven-4.0.0.xsd</span>”&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="title">modelVersion</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>me.stonerivers<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>java-web-test<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>modelVersion</strong>：POM模型版本。需要与使用的Maven匹配，版本4.0.0适用于Maven 2和3。
-<strong>groupId</strong>：标识该项目开发团队，常用组织的域名（com.jymf）。开源项目有时也用开发的项目名定义。
-<strong>artifactId</strong>：标识当前项目的名称。
-<strong>version</strong>：版本号。</p>
-<p>pom.xml还有很多其他的项目，需要使用时可以查阅<a href="http://maven.apache.org/pom.html" target="_blank" rel="external">Apache Maven Project - Maven POM Reference</a></p>
-<h3 id="POM文件的继承">POM文件的继承</h3><p>可以让一个pom文件显式地继承另一个pom文件。这样，可以通过修改公共父pom文件的设置来修改所有子pom文件的设置。子pom文件中的相同设置可以覆盖父pom文件中的设置。
-定义父POM方式如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">project</span> <span class="attribute">xmlns</span>=<span class="value">”http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">POM</span>/<span class="attribute">4.0.0</span>″</span><br><span class="line"><span class="attribute">xmlns:xsi</span>=<span class="value">”http:</span>//<span class="attribute">www.w3.org</span>/<span class="attribute">2001</span>/<span class="attribute">XMLSchema-instance</span>”</span><br><span class="line"><span class="attribute">xsi:schemaLocation</span>=<span class="value">”http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">POM</span>/<span class="attribute">4.0.0</span></span><br><span class="line"><span class="attribute">http:</span>//<span class="attribute">maven.apache.org</span>/<span class="attribute">xsd</span>/<span class="attribute">maven-4.0.0.xsd</span>”&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="title">modelVersion</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="title">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>me.stonerivers<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>my-parent<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">relativePath</span>&gt;</span>../my-parent<span class="tag">&lt;/<span class="title">relativePath</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">parent</span>&gt;</span></span><br><span class="line">	…</span><br><span class="line"><span class="tag">&lt;/<span class="title">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="有效POM">有效POM</h3><p>考虑到pom文件的继承关系，当Maven执行的时候可能很难确定最终的pom文件的内容。最终生效的pom文件被称为有效pom（effective pom）。可以使用以下的命令让Maven打印出当前的有效pom：
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">mvn </span>help:effective-pom</span><br></pre></td></tr></table></figure></p>
-<p>执行以上命令，Maven会将有效pom输出到命令行。</p>
-<h2 id="Maven的生命周期">Maven的生命周期</h2><h3 id="生命周期概述">生命周期概述</h3><p>Maven有三套<strong>相互独立</strong>的生命周期：</p>
-<ul>
-<li>Clean Lifecycle：在进行真正的构建之前进行一些清理工作。</li>
-<li>Default Lifecycle：构建的核心部分，编译，测试，打包，部署等等。</li>
-<li>Site Lifecycle：生成项目报告，站点，发布站点。</li>
-</ul>
-<p>每套生命周期都由一组阶段(Phase)组成，我们平时在命令行输入的命令总会对应于一个特定的阶段，该阶段和该周期中该阶段之前的阶段都会被执行。比如，运行mvn clean ，这个的clean是Clean生命周期的一个阶段，那么clean阶段和Clean周期中clean之前的阶段（pre-clean）都会被执行。</p>
-<p>三套生命周期虽然是独立的，但仍然可以在一条命令中同时执行多个周期，比如：
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">mvn </span>clean install site</span><br></pre></td></tr></table></figure></p>
-<p>###目标
-另一个和周期/阶段相关的概念是<strong>目标</strong>。<strong>目标</strong>表示一个特定的、对构建和管理工程有帮助的任务。它可能绑定了 0 个或多个构建阶段。没有绑定任何构建阶段的目标可以在构建生命周期之外被直接调用执行。
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn dependency:<span class="keyword">copy</span>-<span class="keyword">dependencies</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Clean周期详解">Clean周期详解</h3><p>Clean生命周期一共包含了三个阶段：</p>
-<ul>
-<li>pre-clean：执行一些需要在clean之前完成的工作</li>
-<li>clean：移除所有上一次构建生成的文件</li>
-<li>post-clean：执行一些需要在clean之后立刻完成的工作</li>
-</ul>
-<h3 id="Site周期详解">Site周期详解</h3><p>Site生命周期一共包含了四个阶段：</p>
-<ul>
-<li>pre-site：执行一些需要在生成站点文档之前完成的工作</li>
-<li>site：生成项目的站点文档</li>
-<li>post-site：执行一些需要在生成站点文档之后完成的工作，并且为部署做准备</li>
-<li>site-deploy：将生成的站点文档部署到特定的服务器上</li>
-</ul>
-<h3 id="Default周期详解">Default周期详解</h3><p>Default生命周期是Maven工作中最重要的生命周期，绝大部分工作都发生在这个生命周期中，这里列出所有的生命周期并解释一些比较重要和常用的阶段：</p>
-<ul>
-<li>validate　　检查工程配置是否正确，完成构建过程的所有必要信息是否能够获取到。</li>
-<li>initialize　　初始化构建状态，例如设置属性。</li>
-<li>generate-sources　　生成编译阶段需要包含的任何源码文件。</li>
-<li>process-sources    　　处理源代码，例如，过滤任何值（filter any value）。</li>
-<li>generate-resources　　生成工程包中需要包含的资源文件。</li>
-<li>process-resources　　拷贝和处理资源文件到目的目录中，为打包阶段做准备。</li>
-<li>compile　　编译工程源码。</li>
-<li>process-classes　　处理编译生成的文件，例如 Java Class 字节码的加强和优化。</li>
-<li>generate-test-sources　　生成编译阶段需要包含的任何测试源代码。</li>
-<li>process-test-sources　　处理测试源代码，例如，过滤任何值（filter any values)。</li>
-<li>test-compile　　编译测试源代码到测试目的目录。</li>
-<li>process-test-classes　　处理测试代码文件编译后生成的文件。</li>
-<li>test　　使用适当的单元测试框架（例如JUnit）运行测试。</li>
-<li>prepare-package　　在真正打包之前，为准备打包执行任何必要的操作。</li>
-<li>package　　获取编译后的代码，并按照可发布的格式进行打包，例如 JAR、WAR 或者 EAR 文件。</li>
-<li>pre-integration-test　　在集成测试执行之前，执行所需的操作。例如，设置所需的环境变量。</li>
-<li>integration-test　　处理和部署必须的工程包到集成测试能够运行的环境中。</li>
-<li>post-integration-test　　在集成测试被执行后执行必要的操作。例如，清理环境。</li>
-<li>verify　　运行检查操作来验证工程包是有效的，并满足质量要求。</li>
-<li>install　　安装工程包到本地仓库中，该仓库可以作为本地其他工程的依赖。</li>
-<li>deploy　　拷贝最终的工程包到远程仓库中，以共享给其他开发人员和工程。</li>
-</ul>
-<p>更详细的声明周期介绍请参看 <a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html" target="_blank" rel="external">Apache Maven Project - Introduction to the Build Lifecycle</a></p>
-<h2 id="构建时配置信息动态修改:Profile">构建时配置信息动态修改:Profile</h2><p>Profile可以看做是配置文件中（settings.xml和pom.xml）的动态补丁，由配置文件中的<code>&lt;profiles&gt;</code>节点的<code>&lt;profile&gt;</code>子节点来定义，每个都Profile有不同的激活条件和相应的配置项。当一个Profile激活后其中的配置项会覆盖配置文件（settings.xml和pom.xml）中的同名配置项。Profile使得构建过程中依据条件动态修改配置文件成为可能，提高了Maven在不同环境下构建工程时的灵活性。</p>
-<h3 id="Profile的分类">Profile的分类</h3><p>根据Profile存在的的位置将Profile分为三个类型（等级）</p>
-<p><table border="1">
-  <tr>
-    <th width="200" align="center">类型（等级）</th>
-    <th width="500" align="center">所定义位置</th>
-  </tr>
-  <tr>
-    <td align="center">Project</td>
-    <td align="center">工程的pom.xml中</td>
-  </tr>
-  <tr>
-    <td align="center">User</td>
-    <td align="center">个人settings.xml（${user.home}/.m2/settings.xml）中</td>
-  </tr>
-  <tr>
-    <td align="center">Global</td>
-    <td align="center">全局settings.xml（$M2_HOME/conf/settings.xml）中</td>
-  </tr>
-</table></p>
-<h3 id="Profile中允许定义的配置信息">Profile中允许定义的配置信息</h3><p>由于Profile是覆盖配置文件中的配置项目，所以Profile中能够定义的配置信息跟Profile所处的位置是相关的。以下就分两种情况来讨论，一种是定义在settings.xml中，另一种是定义在pom.xml中。  </p>
-<h4 id="1-定义在settings-xml中">1.定义在settings.xml中</h4><p>  <code>&lt;repositories&gt;</code>、<code>&lt;pluginRepositories&gt;</code>和<code>&lt;properties&gt;</code>
-  其中<code>&lt;properties&gt;</code>中的键值对可以在pom.xml中使用。</p>
-<h4 id="2-定义在pom-xml中">2.定义在pom.xml中</h4><p><code>&lt;repositories&gt;</code>、<code>&lt;pluginRepositories&gt;``&lt;dependencies&gt;</code>、<code>&lt;plugins&gt;</code>、<code>&lt;properties&gt;</code>、<code>&lt;dependencyManagement&gt;</code>、<code>&lt;distributionManagement&gt;</code>
-以及<code>&lt;build&gt;</code>元素下面的子元素，主要包括：<code>&lt;defaultGoal&gt;</code>、<code>&lt;resources&gt;</code>、<code>&lt;testResources&gt;</code>、<code>&lt;finalName&gt;</code></p>
-<h3 id="Profile的激活方式">Profile的激活方式</h3><p>由<code>&lt;profile&gt;</code>的子标签<code>&lt;activation&gt;</code>定义。</p>
-<h4 id="1-显式激活：">1.显式激活：</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn <span class="package"><span class="keyword">package</span> -<span class="title">P</span> <span class="title">profile1</span></span></span><br></pre></td></tr></table></figure>
-<p>在进行mvn构建时候显式激活id为profile1的Profile</p>
-<h4 id="2-自动激活：">2.自动激活：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">profiles</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="title">profile</span>&gt;</span>  </span><br><span class="line">	    <span class="tag">&lt;<span class="title">id</span>&gt;</span>profile1<span class="tag">&lt;/<span class="title">id</span>&gt;</span>  </span><br><span class="line">	    <span class="tag">&lt;<span class="title">properties</span>&gt;</span>  </span><br><span class="line">	        <span class="tag">&lt;<span class="title">name</span>&gt;</span>stonerivers<span class="tag">&lt;/<span class="title">name</span>&gt;</span>  </span><br><span class="line">	    <span class="tag">&lt;/<span class="title">properties</span>&gt;</span>  </span><br><span class="line">	    <span class="tag">&lt;<span class="title">activation</span>&gt;</span>  </span><br><span class="line">	        <span class="tag">&lt;<span class="title">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="title">activeByDefault</span>&gt;</span>  </span><br><span class="line">	    <span class="tag">&lt;/<span class="title">activation</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="title">profile</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="title">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>profile1会在没有其它Profile激活的情况下被激活</p>
-<h4 id="3-在settings-xml中指定激活">3.在settings.xml中指定激活</h4><pre><code><span class="tag">&lt;<span class="title">activeProfiles</span>&gt;</span>  
-    <span class="tag">&lt;<span class="title">activeProfile</span>&gt;</span>profile1<span class="tag">&lt;/<span class="title">activeProfile</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">activeProfile</span>&gt;</span>profile2<span class="tag">&lt;/<span class="title">activeProfile</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">activeProfiles</span>&gt;</span>
-</code></pre><h4 id="4-根据环境来激活">4.根据环境来激活</h4><p>主要有四类判断条件：①根据jdk版本。②根据操作系统信息。③根据特定Property值。④根据某个文件状态（是否存在）。
-具体配置见：<a href="http://maven.apache.org/pom.html#Profiles" target="_blank" rel="external">Apache Maven Project - POM Reference</a></p>
-<h2 id="依赖管理">依赖管理</h2><h3 id="Maven仓库">Maven仓库</h3><p>仓库是Maven用来存放JARs的地方，Maven使用它来管理依赖。具体来说Maven仓库有三种类型：</p>
-<ul>
-<li>本地仓库 Local Repository</li>
-<li>远程仓库 Remote Repository</li>
-<li>中央仓库 Central Repository</li>
-</ul>
-<p>下面分类具体介绍</p>
-<ol>
-<li>本地仓库
-本地仓库的默认路径是${user.home}/.m2/repository，你可以在settings.xml中进行修改。每进行一次Maven构建，Maven 会从中央仓库下载成功获取的依赖文件存放在本地仓库中，避免重复下载。你也可以手动将文件放入自己的本地仓库。</li>
-<li>远程仓库
-当在本地仓库和远程仓库都找不到项目依赖项的时候（公司内部Jar，未被Maven收录进中央仓库的第三方Jar），Maven便会报错无法进行构建。
-这时，我们就需要远程仓库来进行支持，如果进行了远程仓库的配置，Maven会转而去远程仓库尝试获取依赖。</li>
-<li>中央仓库
-由Maven社区提供并管理的仓库，通过网络来访问。Maven构建时会去中央仓库获取本地不存在的依赖项。</li>
-</ol>
-<p>Maven在解析依赖时，尝试流程如下：本地仓库-&gt;中央仓库-&gt;远程仓库（如果有配置）。</p>
-<h3 id="依赖引入">依赖引入</h3><p>在pom.xml中用<code>&lt;dependencies&gt;</code>来引入依赖，Maven依据上述解析流程去获取依赖。pom文件如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.jsoup<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>jsoup<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">version</span>&gt;</span>1.7.1<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span>       </span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中version取值可以有以下情况：</p>
-<ul>
-<li>1.0: 软需求，推荐maven引入1.0版本，如果不存在1.0版本会向下取最新版本</li>
-<li>[1.0]: 硬需求，要求maven必须引入1.0版本</li>
-<li>(,1.0]: x &lt;= 1.0</li>
-<li>[1.2,1.3]: 1.2 &lt;= x &lt;= 1.3</li>
-<li>[1.0,2.0): 1.0 &lt;= x &lt; 2.0</li>
-<li>[1.5,): x &gt;= 1.5</li>
-<li>(,1.0],[1.2,): x &lt;= 1.0 或 x &gt;= 1.2，多项取值范围间用逗号( , )隔开，逻辑关系为 或 </li>
-</ul>
-<p>本地仓库中依赖的目录结构（以上述pom.xml为例），引入的依赖文件会存放在以下目录中：${user.home}/.m2/repository/org/jsoup/jsoup/1.7.1/</p>
-<h3 id="外部依赖">外部依赖</h3><p>当所需的依赖不在中央仓库和远程仓库中时，我们可以用外部依赖来向工程中引入某个jar包。也就是告诉Maven这个依赖并不存在Maven仓库中，我需要手动从外部某个地方（本机某个目录）引入这个依赖。
-通常情况下是讲外部依赖放在项目中，比如引入项目根目录下的lib文件夹中的stone.jar，pom.xml文件配置如下：
-更多相关配置参看<a href="http://maven.apache.org/pom.html#Dependencies" target="_blank" rel="external">Apache Maven Project - -POM Reference</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>stone<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>stone<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">systemPath</span>&gt;</span>$&#123;basedir&#125;\lib\stone.jar<span class="tag">&lt;/<span class="title">systemPath</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Plugins">Plugins</h2><p>待续</p>
-<h2 id="参考资料：">参考资料：</h2><ol>
-<li><a href="http://ifeve.com/maven-1/" target="_blank" rel="external">Maven入门指南（一）</a></li>
-<li><a href="http://ifeve.com/maven-2/" target="_blank" rel="external">Maven入门指南（二）</a> </li>
-<li><a href="http://juvenshun.iteye.com/blog/213959" target="_blank" rel="external">Maven生命周期详解</a></li>
-<li><a href="http://haohaoxuexi.iteye.com/blog/1900568" target="_blank" rel="external">Maven简介（三）</a></li>
-<li><a href="http://blog.csdn.net/tomato__/article/details/13025187" target="_blank" rel="external">maven设置——setting.xml文件学习</a></li>
-</ol>
-
-            
-          </span>
+<li>无需过多配置的发布管理。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/25/maven/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
